@@ -180,7 +180,7 @@ def learn(lr_=1e-4, dr_=0.7, sgf_dir="sgf/", use_gpu=True, gpu_cnt=1):
             sess.run(train_op, feed_dict=feed_dict_)
             global_step_idx += 1
 
-            if global_step_idx % (total_steps // 1000) == 0:
+            if (total_steps // 1000) == 0 or global_step_idx % (total_steps // 1000) == 0:
                 progress_now = float(global_step_idx) / total_steps * 100
                 str_log = "progress: %03.2f[%%] " % (progress_now)
 
