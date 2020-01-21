@@ -73,6 +73,7 @@ def call_gtp(main_time, byoyomi, quick=False, clean=False, use_gpu=True):
             send("")
         elif include(str, "genmove"):
             if quick:
+                win_rate = 0.5
                 move = rv2ev(np.argmax(tree.evaluate(b)[0][0]))
             else:
                 move, win_rate = tree.search(b, 0, ponder=False, clean=clean)
