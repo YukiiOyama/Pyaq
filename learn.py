@@ -159,6 +159,9 @@ def learn(lr_=1e-4, dr_=0.7, sgf_dir="sgf/", use_gpu=True, gpu_cnt=1):
     stdout_log("learning rate=%.1g\n" % (learning_rate))
     start_time = time.time()
 
+    saver = tf.train.import_meta_graph('model1.ckpt.meta')
+    saver.restore(sess,'model1.ckpt')
+
     # training
     for epoch_idx in range(total_epochs):
         if epoch_idx > 0 and (epoch_idx - 8) % 8 == 0:
@@ -219,4 +222,5 @@ def learn(lr_=1e-4, dr_=0.7, sgf_dir="sgf/", use_gpu=True, gpu_cnt=1):
         # log_file.write("%s\n" % (str_summary))
         # log_file.close()
 
+    saver.save(sess, "model2.ckpt")
     dn.save_vars(sess, "model.ckpt")
