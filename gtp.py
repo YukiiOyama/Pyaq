@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 from sys import stderr, stdout, stdin
-from board import *
 import numpy as np
+from board import *
 from search import Tree
 
 
@@ -42,7 +42,8 @@ def call_gtp(main_time, byoyomi, quick=False, clean=False, use_gpu=True):
         str = stdin.readline().rstrip("\r\n")
         if str == "":
             continue
-        elif include(str, "protocol_version"):
+        Tree.stop = True
+        if include(str, "protocol_version"):
             send("2")
         elif include(str, "name"):
             send("Pyaq")
@@ -52,7 +53,8 @@ def call_gtp(main_time, byoyomi, quick=False, clean=False, use_gpu=True):
             stdout.write("=")
             for cmd in cmd_list:
                 stdout.write(cmd + "\n")
-            send("")
+            stdout.write("\n")
+            stdout.flush()
         elif include(str, "boardsize"):
             bs = int(args(str)[0])
             if bs != BSIZE:
