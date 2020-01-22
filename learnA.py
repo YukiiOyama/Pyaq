@@ -223,4 +223,4 @@ def learn(lr_=1e-4, dr_=0.7, sgf_dir="sgf/", use_gpu=True, gpu_cnt=1):
         # log_file.close()
 
     saver.save(sess, "model2.ckpt")
-    dn.save_vars(sess, "model.ckpt")
+    #dn.save_vars(sess, "model.ckpt")
