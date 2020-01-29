@@ -6,7 +6,6 @@ import sys
 from board import *
 import gtp
 import learn
-import learnA
 import search
 
 
@@ -24,8 +23,6 @@ if __name__ == "__main__":
     for arg in args:
         if arg.find("self") >= 0:
             launch_mode = 1
-        elif arg.find("learnA") >= 0:
-            launch_mode = 3
         elif arg.find("learn") >= 0:
             launch_mode = 2
         elif arg.find("quick") >= 0:
@@ -80,7 +77,5 @@ if __name__ == "__main__":
             result_str = "%s+%.1f" % (winner, abs(score))
         sys.stderr.write("result: %s\n" % result_str)
 
-    elif launch_mode == 2:
-        learn.learn(3e-4, 0.5, sgf_dir="sgf/", use_gpu=use_gpu, gpu_cnt=1)
     else:
-        learnA.learn(3e-4, 0.5, sgf_dir="sgf/", use_gpu=use_gpu, gpu_cnt=1)
+        learn.learn(3e-4, 0.5, sgf_dir="sgf/", use_gpu=use_gpu, gpu_cnt=1)
