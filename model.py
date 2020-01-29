@@ -126,9 +126,11 @@ class DualNetwork(object):
 
             saver = tf.train.Saver(vars_train, write_version=1)
             if ckpt_path != "":
+                stdout_log("create_sess:restore")
                 saver.restore(sess_, ckpt_path)
                 sess_.run(tf.variables_initializer(v_to_init))
             else:
+                stdout_log("create_sess:init")
                 sess_.run(tf.global_variables_initializer())
 
         return sess_
