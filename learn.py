@@ -136,10 +136,12 @@ def learn(lr_=1e-4, dr_=0.7, sgf_dir="sgf/", use_gpu=True, gpu_cnt=1):
                 accuracy_v = tf.reduce_mean(tf.square(tf.subtract(v_, r_acc)))
                 accuracy = (accuracy_p, accuracy_v)
 
-        modelfile = ""
         if os.path.exists("model.ckpt") == True:
-            modelfile = "model.ckpt"
-        sess = dn.create_sess(modelfile)
+            stdout.write("-----model.ckpt restore-----\n")
+            sess = dn.create_sess("model.ckpt")
+        else:
+            stdout.write("-----create new file----- \n")
+            sess = dn.create_sess()
 
     # load sgf and convert to feed
     sgf_list = import_sgf(sgf_dir)
