@@ -93,6 +93,8 @@ def import_sgf(dir_path):
 def sgf2feed(sgf_list):
     total_cnt = 0
     for s in sgf_list:
+        if s.size != BSIZE or s.handicap != 0:
+            continue
         total_cnt += s.move_cnt
 
     feature = np.zeros((total_cnt, BVCNT, 7), dtype=np.uint8)
