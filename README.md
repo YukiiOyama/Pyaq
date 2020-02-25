@@ -197,7 +197,7 @@ $ ./pyaq.py --self --byoyomi=3
 GPUなしの場合は```--cpu```オプションを追加してください。  
 
 ```
-$ ./pyaq.py --self --byoyomi=3 --cpu --path="学習ファイルの絶対パス"
+$ ./pyaq.py --self --byoyomi=3 --cpu
 ```
 
 １手３秒で対局が進行します。  
