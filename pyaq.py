@@ -19,6 +19,7 @@ if __name__ == "__main__":
     random = False
     clean = False
     use_gpu = True
+    ckpt_path = "model.ckpt"
 
     for arg in args:
         if arg.find("self") >= 0:
@@ -37,14 +38,16 @@ if __name__ == "__main__":
             byoyomi = float(arg[arg.find("=") + 1:])
         elif arg.find("cpu") >= 0:
             use_gpu = False
+        elif arg.find("path") >= 0:
+            ckpt_path = arg[arg.find("=") + 1:]
 
     if launch_mode == 0:
-        gtp.call_gtp(main_time, byoyomi, quick, clean, use_gpu)
+        gtp.call_gtp(main_time, byoyomi, quick, clean, use_gpu, ckpt_path)
 
     elif launch_mode == 1:
         b = Board()
         if not random:
-            tree = search.Tree("model.ckpt", use_gpu)
+            tree = search.Tree(ckpt_path, use_gpu)
 
         while b.move_cnt < BVCNT * 2:
             prev_move = b.prev_move
