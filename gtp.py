@@ -32,9 +32,9 @@ def args(str):
     return arg_list
 
 
-def call_gtp(main_time, byoyomi, quick=False, clean=False, use_gpu=True):
+def call_gtp(main_time, byoyomi, quick=False, clean=False, use_gpu=True, ckpt_path="model.ckpt"):
     b = Board()
-    tree = Tree(use_gpu=use_gpu)
+    tree = Tree(ckpt_path, use_gpu=use_gpu)
     tree.main_time = main_time
     tree.byoyomi = byoyomi
 
