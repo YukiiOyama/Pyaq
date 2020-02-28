@@ -222,6 +222,7 @@ class Board(object):
                 atr_cnt[self.turn] < stone_cnt[self.turn])
 
     def eyeshape(self, v, pl):
+        #
         if v == PASS:
             return False
         for d in dir4:
