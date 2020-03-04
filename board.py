@@ -8,7 +8,7 @@ import numpy as np
 BSIZE = 19  # board size
 EBSIZE = BSIZE + 2  # extended board size
 BVCNT = BSIZE ** 2  # vertex count
-EBVCNT = EBSIZE ** 2  # extended vertex count
+EBVCNT = EBSIZE ** 2 + 200 # extended vertex count
 PASS = EBVCNT  # pass
 VNULL = EBVCNT + 1  # invalid position
 KOMI = 6.5
