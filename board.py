@@ -341,6 +341,7 @@ class Board(object):
 
         print_xlabel()
         stderr.write("\n")
+        stderr.flush()
 
     def feature(self):
         feature_ = np.zeros((EBVCNT, FEATURE_CNT), dtype=np.float)
