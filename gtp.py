@@ -104,9 +104,9 @@ def call_gtp(main_time, byoyomi, quick=False, clean=False, use_gpu=True, ckpt_pa
             send("")
         elif include(str, "showboard"):
             b.showboard()
-            send("")
+            # send("")
         elif include(str, "quit"):
             send("")
             break
         else:
-            stdout.write("?unknown_command\n\n")
+            send("?unknown_command\n\n")
