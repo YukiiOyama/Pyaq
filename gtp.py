@@ -11,7 +11,7 @@ cmd_list = [
     "protocol_version", "name", "version", "list_commands",
     "boardsize", "komi", "time_settings", "time_left",
     "clear_board", "genmove", "play", "undo",
-    "gogui-play_sequence", "showboard", "quit"
+    "gogui-play_sequence", "showboard", "final_score", "quit"
 ]
 
 
@@ -105,6 +105,8 @@ def call_gtp(main_time, byoyomi, quick=False, clean=False, use_gpu=True, ckpt_pa
         elif include(str, "showboard"):
             b.showboard()
             # send("")
+        elif include(str, "final_score"):
+            b.score()
         elif include(str, "quit"):
             send("")
             break
