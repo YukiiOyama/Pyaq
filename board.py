@@ -302,6 +302,14 @@ class Board(object):
                 elif nbr_cnt[1] > 0 and nbr_cnt[0] == 0:
                     stone_cnt[1] += 1
         return stone_cnt[1] - stone_cnt[0] - KOMI
+        if(stone_cnt[1] > stone_cnt[0] - KOMI): #black Win
+            score = stone_cnt[1] - stone_cnt[0] - KOMI
+            stderr.write("B+" + str(score))
+        else:
+            score = stone_cnt[0] - stone_cnt[1] + KOMI
+            stderr.write("W+" + str(score))
+        stderr.write("\n")
+        stderr.flush()
 
     def rollout(self, show_board=False):
         while self.move_cnt < EBVCNT * 2:
