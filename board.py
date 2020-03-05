@@ -301,7 +301,7 @@ class Board(object):
                     stone_cnt[0] += 1
                 elif nbr_cnt[1] > 0 and nbr_cnt[0] == 0:
                     stone_cnt[1] += 1
-        return stone_cnt[1] - stone_cnt[0] - KOMI
+        # return stone_cnt[1] - stone_cnt[0] - KOMI
         if(stone_cnt[1] > stone_cnt[0] - KOMI): #black Win
             score = stone_cnt[1] - stone_cnt[0] - KOMI
             stderr.write("B+" + str(score))
