@@ -282,3 +282,4 @@ class Tree(object):
             stderr.write("|%-4s|%7d|%5.1f|%5.1f|%5.1f| %s\n" % (
                 ev2str(nd.move[m]), visit_cnt, rate, value, nd.prob[m] * 100,
                 self.best_sequence(nd.next_id[m], nd.move[m])))
+        stderr.flush()
